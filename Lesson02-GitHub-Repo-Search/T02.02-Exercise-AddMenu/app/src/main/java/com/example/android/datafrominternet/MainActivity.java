@@ -15,10 +15,14 @@
  */
 package com.example.android.datafrominternet;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -48,7 +52,24 @@ public class MainActivity extends AppCompatActivity {
     // TODO (7) Set the title to the search string ("Search") from strings.xml
     // Do 2 - 7 in main.xml ///////////////////////////////////////////////////////////////////////
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main, menu);
+        return true;
+    }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int menuItemThatWasSelacted = item.getItemId();
+        if(menuItemThatWasSelacted == R.id.action_search)
+        {
+            Context context  = MainActivity.this;
+            String msg = "clicked";
+            Toast.makeText(context, msg, Toast.LENGTH_LONG).show();
+
+        }
+        return true;
+    }
     // TODO (8) Override onCreateOptionsMenu
     // TODO (9) Within onCreateOptionsMenu, use getMenuInflater().inflate to inflate the menu
     // TODO (10) Return true to display your menu
